@@ -2,14 +2,18 @@ body {
     background-color: black;
 }
 
-.main {
+.board {
+    position: absolute;
     font-family: 'Segoe UI', sans-serif;
     aspect-ratio: 1;
 }
 
-.main td {
+.board td {
     border: 5px solid hotpink;
+    padding: 15px;
     width: 20%;
     height: 20%;
     color: white;
+    max-width: 15rem;
+    text-align: center;
 }

@@ -3,8 +3,8 @@
 // [s] = streamer
 
 const tileMessage = [
-    ["[c]","3+ subs (gifted or not)"],
-    ["[c]","500+ bits donation"],
+    ["[c]","3+ subscriptions)"],
+    ["[c]","500+ bits"],
     ["[c]","chat spam (buy follows)"],
     ["[c]","comment on streamers appearance"],
     ["[c]","user banned"],
