@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+}
+
+.main {
+    font-family: 'Segoe UI', sans-serif;
+    aspect-ratio: 1;
+}
+
+.main td {
+    border: 5px solid hotpink;
+    width: 20%;
+    height: 20%;
+    color: white;
+}
