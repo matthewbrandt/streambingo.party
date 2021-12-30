@@ -1,24 +1,41 @@
+:root {
+    --oxfordblue: #072540;
+    --ocean: #033E8C;
+    --palatinateblue: #044BD9;
+    --rose: #F20587;
+    --uared: #D90452;
+    --white: #FFFFFF;
+}
+
 body {
-    background-color: black;
+    background-color: var(--oxfordblue);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    letter-spacing: 1rem;
+    color: var(--white);
 }
 
 .board {
     position: absolute;
-    font-family: 'Segoe UI', sans-serif;
     aspect-ratio: 1;
+    text-transform: uppercase;
+    color: white;
 }
 
 .board td {
-    border: 5px solid hotpink;
+    border: 5px solid var(--palatinateblue);
     padding: 15px;
     width: 20%;
     height: 20%;
-    color: white;
-    max-width: 15rem;
+    max-width: 10rem;
     text-align: center;
+    letter-spacing: 0.25rem;
 }
 
 .board td.marked {
-    background-color: hotpink;
-    border: 5px solid white;
+    background-color: var(--rose);
+    border: 5px solid var(--white);
 }

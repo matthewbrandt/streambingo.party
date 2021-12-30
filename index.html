@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  GET REKT PANTHER
+  <h1>G3T R3KT P4NTH3R EZ GG</h1>
 
   <table id="bingoBoard" class="board">
     <tr>
@@ -38,12 +38,12 @@
         <tr>
         <td>one</td>
         <td>two</td>
-        <td>FREE</td>
+        <td id="freeTile" class="marked">FREE</td>
         <td>four</td>
         <td>five</td>
     </tr>
         <tr>
-        <td class="marked">one</td>
+        <td>one</td>
         <td>two</td>
         <td>three</td>
         <td>four</td>
@@ -61,7 +61,7 @@
   <script>
       let table = document.getElementById("bingoBoard");
       table.addEventListener("click", function(e) {
-        e.target.classList.toggle("marked");
+        e.target.id ==! 'freeTile' && e.target.classList.toggle("marked");
       });
   </script>
 </body>
