@@ -20,10 +20,10 @@
 <body>
   GET REKT PANTHER
 
-  <table class="board">
+  <table id="bingoBoard" class="board">
     <tr>
-      <td>this is a lot longer</td>
-      <td>two</td>
+      <td id="one">this is a lot longer</td>
+      <td id="two">two</td>
       <td>three</td>
       <td>four</td>
       <td>five</td>
@@ -43,7 +43,7 @@
         <td>five</td>
     </tr>
         <tr>
-        <td>one</td>
+        <td class="marked">one</td>
         <td>two</td>
         <td>three</td>
         <td>four</td>
@@ -58,5 +58,11 @@
     </tr>
   </table>
   <script src="app.js"></script>
+  <script>
+      let table = document.getElementById("bingoBoard");
+      table.addEventListener("click", function(e) {
+        e.target.classList.toggle("marked");
+      });
+  </script>
 </body>
 </html>

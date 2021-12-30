@@ -17,3 +17,8 @@ body {
     max-width: 15rem;
     text-align: center;
 }
+
+.board td.marked {
+    background-color: hotpink;
+    border: 5px solid white;
+}
