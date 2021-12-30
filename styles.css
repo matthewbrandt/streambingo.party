@@ -11,18 +11,22 @@ body {
     background-color: var(--oxfordblue);
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    font-size: 13px;
 }
 
 h1 {
     letter-spacing: 1rem;
-    color: var(--white);
+    color: var(--uared);
 }
 
 .board {
-    position: absolute;
     aspect-ratio: 1;
     text-transform: uppercase;
     color: white;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .board td {
@@ -30,7 +34,8 @@ h1 {
     padding: 15px;
     width: 20%;
     height: 20%;
-    max-width: 10rem;
+    min-width: 6rem;
+    max-width: 9.5rem;
     text-align: center;
     letter-spacing: 0.25rem;
 }

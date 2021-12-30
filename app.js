@@ -47,7 +47,7 @@ function getMessages() {
     }
 
     bingoArray = messageArray.sort();
-    console.log(bingoArray);
+    // console.log(bingoArray);
     
 }
 
