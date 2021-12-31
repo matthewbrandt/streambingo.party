@@ -1,7 +1,7 @@
 // array of all possible tile messages
 const tilesArray = [
-    "3+ subscriptions",
-    "500+ bits",
+    "gets 3 or more subs",
+    "gets 500 or more bits",
     "chat spam (e.g. buy follows)",
     "comment on streamers appearance",
     "user banned",
@@ -14,7 +14,7 @@ const tilesArray = [
     "forgets to change scene",
     "forgets to mute mic",
     "gets raided",
-    "mispronounces someone's username",
+    "mis-pronounces someone's username",
     "OBS/stream crashes",
     "runs a poll",
     "says \"i can't believe that worked\"",
@@ -23,7 +23,7 @@ const tilesArray = [
     "says to join discord",
     "sings a little",
     "stands up",
-    "touches microphone by mistake"
+    "touches mic by mistake"
 ];
 
 // taken from https://stackoverflow.com/questions/16801687/javascript-random-ordering-with-seed
@@ -61,17 +61,16 @@ const boardSeedRegex = new RegExp('^[0-9]{1,4}$');
 
 // DO NOT EVER ADD ANOTHER TABLE TO THE PAGE
 function getMessages() {
-    
     let boardConfig = [];
-
     if (boardSeedRegex.test(boardSeed)) {
-        console.log("id present and numeric");
+        // set noboard message to hidden as the board is shown
         document.getElementById('noBoard').style.display = "none";
-        // shuffle the array of items
+        
+        // shuffle the array of messages to randomise the board using the provided seed
         boardConfig = shuffle(tilesArray,boardSeed);
         for (let i = 0; i < boardConfig.length; i++) {
             if (i < 12) { 
-                document.getElementsByTagName("td")[i].innerText = boardConfig[i]; 
+                document.getElementsByTagName("td")[i].innerText = boardConfig[i];
             }
             if (i >= 12) {
                 document.getElementsByTagName("td")[i+1].innerText = boardConfig[i];
@@ -79,10 +78,17 @@ function getMessages() {
         }
     }
     else {
-        console.log("id incorrect or not present");
+        // hide the board and the message will be shown
         document.getElementById('bingoBoardWrapper').classList.add("hidden");
     }
 }
+
+// add click listener to tiles
+let table = document.getElementById("bingoBoard");
+table.addEventListener("click", function(e) {
+  e.target.id ==! 'freeTile' && e.target.classList.toggle("marked");
+  // function to update the marked tiles in the URL
+});
 
 getMessages();
 

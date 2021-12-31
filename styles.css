@@ -6,7 +6,13 @@
     --uared: #D90452;
     --hotpink: hotpink;
     --white: #FFFFFF;
+    --black: #000000;
 }
+
+@font-face {
+    font-family: 'Commando';
+    src: url(Commando.woff);
+  }
 
 body {
     background-color: var(--oxfordblue);
@@ -25,10 +31,16 @@ a {
 }
 
 h1 {
-    letter-spacing: 1rem;
-    color: var(--uared);
+    font-family: 'Commando', 'sans-serif';
+    letter-spacing: 0.6rem;
     text-transform: uppercase;
     text-align: center;
+    font-size: 48px;
+    background: -webkit-linear-gradient(var(--uared),var(--uared),var(--white));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 0.1px var(--palatinateblue);
 }
 
 h2 {
@@ -50,6 +62,10 @@ h2 span {
 .boardWrapper {
     flex-grow: 1;
     margin-bottom: 20px;
+    user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
 }
 
 .board {
@@ -64,7 +80,7 @@ h2 span {
 
 .board td {
     border: 5px solid var(--palatinateblue);
-    padding: 15px;
+    padding: 8px;
     width: 20%;
     height: 20%;
     min-width: 6rem;
