@@ -4,19 +4,68 @@
     --palatinateblue: #044BD9;
     --rose: #F20587;
     --uared: #D90452;
+    --hotpink: hotpink;
     --white: #FFFFFF;
+    --black: #000000;
 }
+
+@font-face {
+    font-family: 'Commando';
+    src: url(Commando.woff);
+  }
 
 body {
     background-color: var(--oxfordblue);
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 13px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+a {
+    color: var(--white); 
 }
 
 h1 {
-    letter-spacing: 1rem;
+    font-family: 'Commando', 'sans-serif';
+    letter-spacing: 0.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 48px;
+    background: -webkit-linear-gradient(var(--uared),var(--uared),var(--white));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 0.1px var(--palatinateblue);
+}
+
+h2 {
+    letter-spacing: 0.5rem;
     color: var(--uared);
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 span {
+    letter-spacing: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.boardWrapper {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
 }
 
 .board {
@@ -31,16 +80,39 @@ h1 {
 
 .board td {
     border: 5px solid var(--palatinateblue);
-    padding: 15px;
+    padding: 8px;
     width: 20%;
     height: 20%;
     min-width: 6rem;
     max-width: 9.5rem;
     text-align: center;
     letter-spacing: 0.25rem;
+    cursor: pointer;
 }
 
 .board td.marked {
     background-color: var(--rose);
     border: 5px solid var(--white);
+}
+
+.board #freeTile {
+    cursor: not-allowed;
+    font-size: 69px;
+}
+
+.noboard {
+    color: var(--white);
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.streamer {
+    color: var(--uared);
+}
+
+.user {
+    color: var(--hotpink);
 }
