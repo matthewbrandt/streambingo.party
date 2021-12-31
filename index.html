@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StreamBingo.Party</title>
+  <meta name="description" content="Play Bingo on livestream with your favourite streamers!">
+  <meta name="author" content="mattytwoshoes">
+  <meta property="og:title" content="StreamBingo.Party">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Play Bingo on livestream with your favourite streamers!">
+  <!-- <meta property="og:image" content="image.png"> -->
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+
+<body>
+  <h1>G3T R3KT P4NTH3R EZ GG</h1>
+  <table id="bingoBoard" class="board">
+    <tr>
+        <td>this is a lot longer</td>
+        <td>two</td>
+        <td>three</td>
+        <td>four</td>
+        <td>five</td>
+    </tr>
+    <tr>
+        <td>one</td>
+        <td>two</td>
+        <td>three</td>
+        <td>four</td>
+        <td>five</td>
+    </tr>
+        <tr>
+        <td>one</td>
+        <td>two</td>
+        <td id="freeTile" class="marked">FREE TILE</td>
+        <td>four</td>
+        <td>five</td>
+    </tr>
+        <tr>
+        <td>one</td>
+        <td>two</td>
+        <td>three</td>
+        <td>four</td>
+        <td>five</td>
+    </tr>
+        <tr>
+        <td>one</td>
+        <td>two</td>
+        <td>three</td>
+        <td>four</td>
+        <td>five</td>
+    </tr>
+  </table>
+  <script src="app.js"></script>
+  <script>
+      let table = document.getElementById("bingoBoard");
+      table.addEventListener("click", function(e) {
+        e.target.id ==! 'freeTile' && e.target.classList.toggle("marked");
+      });
+  </script>
+</body>
+</html>

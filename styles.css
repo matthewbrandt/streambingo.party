@@ -1,0 +1,46 @@
+:root {
+    --oxfordblue: #072540;
+    --ocean: #033E8C;
+    --palatinateblue: #044BD9;
+    --rose: #F20587;
+    --uared: #D90452;
+    --white: #FFFFFF;
+}
+
+body {
+    background-color: var(--oxfordblue);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+h1 {
+    letter-spacing: 1rem;
+    color: var(--uared);
+}
+
+.board {
+    aspect-ratio: 1;
+    text-transform: uppercase;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.board td {
+    border: 5px solid var(--palatinateblue);
+    padding: 15px;
+    width: 20%;
+    height: 20%;
+    min-width: 6rem;
+    max-width: 9.5rem;
+    text-align: center;
+    letter-spacing: 0.25rem;
+}
+
+.board td.marked {
+    background-color: var(--rose);
+    border: 5px solid var(--white);
+}
