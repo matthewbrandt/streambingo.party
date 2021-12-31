@@ -4,64 +4,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StreamBingo.Party</title>
+  <title>StreamBingo | Play Bingo with your livestreamer</title>
   <meta name="description" content="Play Bingo on livestream with your favourite streamers!">
   <meta name="author" content="mattytwoshoes">
   <meta property="og:title" content="StreamBingo.Party">
   <meta property="og:type" content="website">
   <meta property="og:description" content="Play Bingo on livestream with your favourite streamers!">
-  <!-- <meta property="og:image" content="image.png"> -->
-  <!-- <link rel="icon" href="/favicon.ico"> -->
-  <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css?v=1.0">
 </head>
 
 <body>
-  <h1>G3T R3KT P4NTH3R EZ GG</h1>
-  <table id="bingoBoard" class="board">
-    <tr>
-        <td>this is a lot longer</td>
-        <td>two</td>
-        <td>three</td>
-        <td>four</td>
-        <td>five</td>
-    </tr>
-    <tr>
-        <td>one</td>
-        <td>two</td>
-        <td>three</td>
-        <td>four</td>
-        <td>five</td>
-    </tr>
+  <h1>Stream Bingo</h1>
+  <div id="bingoBoardWrapper" class="boardWrapper">
+    <table id="bingoBoard" class="board">
         <tr>
-        <td>one</td>
-        <td>two</td>
-        <td id="freeTile" class="marked">FREE TILE</td>
-        <td>four</td>
-        <td>five</td>
-    </tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
         <tr>
-        <td>one</td>
-        <td>two</td>
-        <td>three</td>
-        <td>four</td>
-        <td>five</td>
-    </tr>
-        <tr>
-        <td>one</td>
-        <td>two</td>
-        <td>three</td>
-        <td>four</td>
-        <td>five</td>
-    </tr>
-  </table>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+            <tr>
+            <td></td>
+            <td></td>
+            <td id="freeTile" class="marked">⭐</td>
+            <td></td>
+            <td></td>
+        </tr>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+  <div id="noBoard" class="noboard">
+    <div>
+        If you're seeing this message...
+        <br>
+        <br>
+        ...as a <span class="streamer">streamer</span>, you need to input a board id into the URL.
+        <br>
+        <br>
+        ...as a <span class="user">user</span>, you need to ask your streamer for a board!
+    </div>
+  </div>
+  <h2>Developed by <a target="_blank" href="https://mattytwo.shoes">mattytwoshoe<span>s</span></a></h2>
   <script src="app.js"></script>
-  <script>
-      let table = document.getElementById("bingoBoard");
-      table.addEventListener("click", function(e) {
-        e.target.id ==! 'freeTile' && e.target.classList.toggle("marked");
-      });
-  </script>
 </body>
 </html>
