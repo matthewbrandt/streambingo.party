@@ -117,6 +117,19 @@ function getMessages() {
     }
 }
 
+function generateBoard() {
+    // generate a random id between 0 and 9999
+    const randomId = Math.round(Math.random() * (9999 - 0 + 1) + 0);
+    console.log(randomId);
+    // push the state into the URL
+    fullUrl.searchParams.set('id',randomId);
+    
+    // push the new state URL param to the address bar
+    window.history.pushState({},'',fullUrl);
+    location.reload();
+
+}
+
 // add click listener to tiles
 let table = document.getElementById("bingoBoard");
 table.addEventListener("click", function(e) {

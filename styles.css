@@ -4,7 +4,7 @@
     --palatinateblue: #044BD9;
     --rose: #F20587;
     --uared: #D90452;
-    --hotpink: hotpink;
+    --bermuda: #82E4C6;
     --white: #FFFFFF;
     --black: #000000;
 }
@@ -109,10 +109,48 @@ h2 span {
     flex-grow: 1;
 }
 
+.instructions {
+    margin: 0 50px 0 50px;
+}
+
+.instructions .spacer {
+    height: 150px;
+}
+
+.instructions button {
+    background: var(--uared);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    height: 4rem;
+    padding: 0 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 40%;
+    text-transform: uppercase;
+}
+
+.instructions button:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+    transition-duration: .1s;
+}
 .streamer {
     color: var(--uared);
 }
 
 .user {
-    color: var(--hotpink);
+    color: var(--bermuda);
 }
