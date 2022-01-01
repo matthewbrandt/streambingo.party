@@ -20,7 +20,7 @@ const tilesArray = [
     "says \"i can't believe that worked\"",
     "says \"let's goooooo\"",
     "says \"what happened?!\"",
-    "says to join discord",
+    "plugs their discord",
     "sings a little",
     "stands up",
     "touches mic by mistake"
@@ -75,24 +75,22 @@ function getMessages() {
         // check if the URL has a state param first
         if (boardStateRegex.test(boardState)) {
             let stateSplit = boardState.split('');
-            for (let i = 0; i < boardConfig.length; i++) {
+            for (let i = 0; i < stateSplit.length; i++) {
                 // check each tile by looking at the param from the URL in the correct position
                 // if current position in string is 1 then add class
                 if (i < 12) {
                     stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
                     document.getElementsByTagName("td")[i].innerText = boardConfig[i];
                 }
-                // if (i = 12) {
-
-                // }
                 if (i >= 12) {
-                    stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
-                    document.getElementsByTagName("td")[i+1].innerText = boardConfig[i];
-                }            
+                    if (document.getElementsByTagName("td")[i].id !== 'freeTile') {
+                        stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
+                        document.getElementsByTagName("td")[i].innerText = boardConfig[i-1];
+                    }       
+                }
             }
         }
         else  {
-            console.log("state parameter incorrectly formatted or missing");
             for (let i = 0; i < boardConfig.length; i++) {
                 // if there is no boardState in the URL then just load the board unmarked
                 if (i < 12) {
@@ -105,8 +103,7 @@ function getMessages() {
                        
             // override the state in the URL object for a blank board
             const initialState = '0000000000001000000000000';
-            console.log(fullUrl);
-            //console.log(urlParams);
+            // push the state into the URL
             fullUrl.searchParams.set('state',initialState);
             
 
