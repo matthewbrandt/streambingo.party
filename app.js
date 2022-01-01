@@ -51,13 +51,13 @@ function random(seed) {
 }
 
 // get configuration for the board from the URL params
-const fullUrl = window.location.href;
-const urlParams = new URLSearchParams(window.location.search);
-const boardSeed = urlParams.get('id');
+let fullUrl = new URL(window.location);
+let urlParams = new URLSearchParams(fullUrl.search);
+let boardSeed = urlParams.get('id');
 
 // define test criteria for seed and state
 const boardSeedRegex = new RegExp('^[0-9]{1,4}$');
-const boardStateRegex = new RegExp('^[0-1]{24}$');
+const boardStateRegex = new RegExp('^[0-1]{25}$');
 
 // DO NOT EVER ADD ANOTHER TABLE TO THE PAGE!
 function getMessages() {
@@ -69,8 +69,8 @@ function getMessages() {
         // shuffle the array of messages to randomise the board using the provided seed
         boardConfig = shuffle(tilesArray,boardSeed);
 
+        // get the state param from the URL if it exists
         let boardState = urlParams.get('state');
-
 
         // check if the URL has a state param first
         if (boardStateRegex.test(boardState)) {
@@ -82,6 +82,9 @@ function getMessages() {
                     stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
                     document.getElementsByTagName("td")[i].innerText = boardConfig[i];
                 }
+                // if (i = 12) {
+
+                // }
                 if (i >= 12) {
                     stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
                     document.getElementsByTagName("td")[i+1].innerText = boardConfig[i];
@@ -99,6 +102,16 @@ function getMessages() {
                     document.getElementsByTagName("td")[i+1].innerText = boardConfig[i];
                 }
             }
+                       
+            // override the state in the URL object for a blank board
+            const initialState = '0000000000001000000000000';
+            console.log(fullUrl);
+            //console.log(urlParams);
+            fullUrl.searchParams.set('state',initialState);
+            
+
+            // push the new state URL param to the address bar
+            window.history.pushState({},'',fullUrl);
         }
     }
     else {
@@ -111,45 +124,50 @@ function getMessages() {
 let table = document.getElementById("bingoBoard");
 table.addEventListener("click", function(e) {
     e.target.id ==! 'freeTile' && e.target.classList.toggle("marked");
+    
+
+    // when a tile is clicked change the state param in the URL
+    // first, get current state value
+
+    // the problem is currently that when this state param is retrieved...
+    // ...it's the OLD value (and not what was pushed)
+    let urlStateParams = new URLSearchParams(window.location.search);
+    let currentState = urlStateParams.get('state');
+
+    if (currentState === undefined) {
         
-    // get current state value first
-    let boardState = urlParams.get('state');
-    let url = new URL(window.location);
+    }
 
-    if (boardStateRegex.test(boardState)) {
-        console.log('currentState =',boardState);
-
+    if (boardStateRegex.test(currentState)) {
         // get the position of the currently clicked tile (one-indexed)
         let tilePosition = e.target.getAttribute('data-position');
 
-        // split the state into an array to be able to mutate it
-        let stateSplit = boardState.split('');
+        // if the tile is the middle one, ignore it
+        if (tilePosition !== '12') {
+            // split the state into an array to be able to mutate it
+            let stateSplit = currentState.split('');
 
-        // get the value of the tile currently clicked from the state
-        let tileCurrentValue = stateSplit[tilePosition];
-        let tileNewValue;
-        // console.log('tilePosition =', tilePosition);
-        // console.log('tileCurrentValue =', tileCurrentValue);
+            // get the value of the tile currently clicked from the state
+            let tileCurrentValue = stateSplit[tilePosition];
+            let tileNewValue;
 
-        // if the tile current value is 1 set the new value to 0 and vice-versa
-        tileCurrentValue == 1 ? tileNewValue = '0' : tileNewValue = '1';
-        // console.log('tileNewValue =', tileNewValue);
-        
-        // replace the old value in the state array with the new value
-        stateSplit[tilePosition] = tileNewValue;
+            // if the tile current value is 1 set the new value to 0 and vice-versa
+            tileCurrentValue == 1 ? tileNewValue = '0' : tileNewValue = '1';
+            
+            // replace the old value in the state array with the new value
+            stateSplit[tilePosition] = tileNewValue;
 
-        // join the array back together as a string before putting it into the URL
-        let newState = stateSplit.join("");
-        console.log('newState =',newState);
+            // join the array back together as a string before putting it into the URL
+            let newState = stateSplit.join("");
+            //console.log('newState =',newState);
 
-        // override the state in the URL object
-        url.searchParams.set('state',newState);
+            const url = new URL(window.location);
+            // override the state in the URL object
+            url.searchParams.set('state',newState);
 
-        // push the new state URL param to the address bar
-        window.history.pushState({},'',url);
-
-
-
+            // push the new state URL param to the address bar
+            window.history.pushState({},'',url);
+        }
 
     }
 
