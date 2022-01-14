@@ -26,6 +26,15 @@ body {
     margin: 0;
 }
 
+header footer {
+    display: flex;
+}
+
+main {
+    display: flex;
+    min-height: 82vh;
+}
+
 a {
     color: var(--white); 
 }
