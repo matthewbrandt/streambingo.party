@@ -16,8 +16,11 @@
 </head>
 
 <body>
-  <h1>Stream Bingo</h1>
-  <div id="bingoBoardWrapper" class="boardWrapper">
+  <header>
+    <h1>Stream Bingo</h1>
+  </header>
+  <main>
+    <div id="bingoBoardWrapper" class="boardWrapper">
     <table id="bingoBoard" class="board">
         <tr>
             <td data-position=0></td>
@@ -55,17 +58,24 @@
             <td data-position=24></td>
         </tr>
       </table>
-  </div>
-  <div id="noBoard" class="noboard">
-    <div class="instructions">
-        <p>If you're seeing this message...</p>
-        <p>...as a <span class="streamer">streamer</span>, use the following button to generate a board randomly.</p>
-        <button onclick="generateBoard()">generate</button>
-        <div class="spacer"></div>
-        <p>...as a <span class="user">viewer</span>, you need to ask your streamer for a board to play with!</p>
     </div>
-  </div>
-  <h2>Developed by <a target="_blank" href="https://github.com/matthewbrandt/streambingo.party">mattytwoshoe<span>s</span></a></h2>
+    <div id="noBoard" class="noboard">
+      <div class="instructions">
+          <p>If you're seeing this message...</p>
+          <p>...as a <span class="streamer">streamer</span>, use the following button to generate a board randomly.</p>
+          <button onclick="generateBoard()">generate</button>
+          <div class="spacer"></div>
+          <p>...as a <span class="user">viewer</span>, you need to ask your streamer for a board to play with!</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <h2>
+      Developed by <a target="_blank" href="https://github.com/matthewbrandt/streambingo.party">mattytwoshoe<span>s</span></a>
+      <br>
+      <div class="version">v1.0-panther</div>
+    </h2>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>

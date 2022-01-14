@@ -23,7 +23,14 @@ const tilesArray = [
     "plugs their discord",
     "sings a little",
     "stands up",
-    "touches mic by mistake"
+    "touches mic by mistake",
+    "shows pet on camera",
+    "chat persuades streamer to do smth",
+    "streamer denies BINGO",
+    "someone hits 100 in drop game",
+    "streamer forgets about stream bingo",
+    "streamer doxxes themselves",
+    "user declares false bingo"
 ];
 
 // taken from https://stackoverflow.com/questions/16801687/javascript-random-ordering-with-seed
@@ -82,7 +89,7 @@ function getMessages() {
                     stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
                     document.getElementsByTagName("td")[i].innerText = boardConfig[i];
                 }
-                if (i >= 12) {
+                if (i >= 12 && i < 25) {
                     if (document.getElementsByTagName("td")[i].id !== 'freeTile') {
                         stateSplit[i] == 1 && document.getElementsByTagName("td")[i].classList.toggle("marked");
                         document.getElementsByTagName("td")[i].innerText = boardConfig[i-1];
@@ -96,7 +103,7 @@ function getMessages() {
                 if (i < 12) {
                     document.getElementsByTagName("td")[i].innerText = boardConfig[i];
                 }
-                if (i >= 12) {
+                if (i >= 12 && i < 24) {
                     document.getElementsByTagName("td")[i+1].innerText = boardConfig[i];
                 }
             }
